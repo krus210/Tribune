@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "856274693338",
+    "firebase_url": "https://kruspushapp.firebaseio.com",
+    "project_id": "kruspushapp",
+    "storage_bucket": "kruspushapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856274693338:android:87a623a50baed8439c89e3",
+        "android_client_info": {
+          "package_name": "ru.korolevss.authorization"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856274693338-58tia9qrh2gmtrfeta73lunro19hfm29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3BAW4AwV2flXYoF_1jMxsnUf0wPKVXLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856274693338-58tia9qrh2gmtrfeta73lunro19hfm29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856274693338:android:59f4e01ddd0869709c89e3",
+        "android_client_info": {
+          "package_name": "ru.korolevss.tribune"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856274693338-58tia9qrh2gmtrfeta73lunro19hfm29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3BAW4AwV2flXYoF_1jMxsnUf0wPKVXLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856274693338-58tia9qrh2gmtrfeta73lunro19hfm29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

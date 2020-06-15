@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/post_padding"
+    android:layout_margin="@dimen/margin_5dp">
+
+    <ImageView
+        android:id="@+id/imageViewUser"
+        android:layout_width="@dimen/user_image_size"
+        android:layout_height="@dimen/user_image_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_baseline_face" />
+
+    <TextView
+        android:id="@+id/textViewUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5dp"
+        android:textSize="@dimen/username_size"
+        app:layout_constraintStart_toEndOf="@+id/imageViewUser"
+        app:layout_constraintTop_toTopOf="@+id/imageViewUser"
+        tools:text="@string/username" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:textSize="@dimen/snippet_size"
+        app:layout_constraintStart_toEndOf="@+id/imageViewUser"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUserName"
+        tools:text="@string/status" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/snippet_size"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@string/date" />
+
+    <ImageView
+        android:id="@+id/imageViewLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDate"
+        app:srcCompat="@drawable/ic_insert_link"
+        android:layout_marginTop="@dimen/margin_5dp"/>
+
+    <TextView
+        android:id="@+id/textViewTextOfPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewUser"
+        tools:text="@string/text_of_post"
+        android:layout_marginTop="@dimen/margin_5dp"/>
+
+    <FrameLayout
+        android:id="@+id/mediaContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTextOfPost"
+        android:layout_marginTop="@dimen/margin_5dp">
+
+        <ImageView
+            android:id="@+id/imageViewPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintHeight_max="400dp"
+            tools:src="@drawable/ic_baseline_insert_photo"/>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageViewLikeDislikeList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_5dp"
+        app:layout_constraintTop_toBottomOf="@+id/mediaContainer"
+        app:srcCompat="@drawable/ic_visibility" />
+
+    <TextView
+        android:id="@+id/textViewNumberDislikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewLikeDislikeList"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLikeDislikeList"
+        android:textSize="@dimen/number_size"
+        tools:text="@string/zero"
+        android:layout_marginEnd="@dimen/margin_15dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewDislike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/textViewNumberDislikes"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLikeDislikeList"
+        app:srcCompat="@drawable/ic_baseline_thumb_down_black"
+        android:layout_marginEnd="@dimen/margin_5dp"/>
+
+    <TextView
+        android:id="@+id/textViewNumberLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/number_size"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDislike"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDislike"
+        android:layout_marginEnd="@dimen/margin_15dp"
+        tools:text="@string/zero" />
+
+    <ImageView
+        android:id="@+id/imageViewLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/textViewNumberLikes"
+        app:layout_constraintTop_toTopOf="@+id/textViewNumberLikes"
+        app:srcCompat="@drawable/ic_thumb_up_black"
+        android:layout_marginEnd="@dimen/margin_5dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
