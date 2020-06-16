@@ -38,4 +38,11 @@
     <string name="loading_posts_failed">Loading posts failed</string>
     <string name="google_play_unavailable">Google Play unavailable</string>
     <string name="vote_only_once">You can vote only once!</string>
+    <string name="me">ME</string>
+    <string name="empty_text">Empty text</string>
+    <string name="photo_upload_is_successful">Photo upload is successful</string>
+    <string name="photo_upload_failed">Photo upload failed</string>
+    <string name="dont_add_photo">Don\'t add photo</string>
+    <string name="create_post_is_successful">Create post is successful</string>
+    <string name="create_post_failed">Create post failed</string>
 </resources>

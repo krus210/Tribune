@@ -3,6 +3,8 @@
     package="ru.korolevss.tribune">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:icon="@mipmap/ic_launcher"

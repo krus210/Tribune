@@ -1,13 +1,20 @@
 package ru.korolevss.tribune.repository
 
+import android.graphics.Bitmap
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.korolevss.tribune.api.API
+import ru.korolevss.tribune.dto.AttachmentModel
 import ru.korolevss.tribune.dto.AuthRequestParams
+import ru.korolevss.tribune.dto.PostRequestDto
 import ru.korolevss.tribune.model.Token
+import java.io.ByteArrayOutputStream
 
 object Repository {
 
@@ -53,5 +60,38 @@ object Repository {
     suspend fun likedByUser(id: Long) = api.likedByUser(id)
 
     suspend fun dislikedByUser(id: Long) = api.dislikedByUser(id)
+
+    suspend fun getPostsOfMe() = api.getPostsOfMe()
+
+    suspend fun getPostsOfUser(username: String) = api.getPostsOfUser(username)
+
+    suspend fun upload(bitmap: Bitmap): Response<AttachmentModel> {
+        val bos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos)
+        val reqFIle =
+            RequestBody.create("image/jpeg".toMediaTypeOrNull(), bos.toByteArray())
+        val body =
+            MultipartBody.Part.createFormData("file", "image.jpg", reqFIle)
+        return api.uploadImage(body)
+    }
+
+    suspend fun createPost(
+        content: String,
+        attachmentImage: String,
+        attachmentLink: String
+    ): Response<Void> {
+        var link: String? = attachmentLink
+        if (link!!.isEmpty()) {
+            link = null
+        } else if (!link.contains("http://") || !link.contains("https://")) {
+            link = "https://$link"
+        }
+        val postRequestDto = PostRequestDto(
+            text = content,
+            attachmentImage = attachmentImage,
+            attachmentLink = link
+        )
+        return api.createPost(postRequestDto)
+    }
 
 }

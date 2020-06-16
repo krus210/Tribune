@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
@@ -22,6 +23,7 @@ import ru.korolevss.tribune.model.PostModel
 import ru.korolevss.tribune.model.Token
 import ru.korolevss.tribune.postadapter.PostAdapter
 import ru.korolevss.tribune.postadapter.PostDiffUtilCallback
+import ru.korolevss.tribune.postadapter.PostViewHolder
 import ru.korolevss.tribune.repository.Repository
 import java.io.IOException
 
@@ -241,6 +243,21 @@ class FeedActivity : AppCompatActivity(), PostAdapter.OnLikeBtnClickListener,
             } finally {
                 switchDeterminateBar(false)
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            startActivity(Intent(this, SettingsActivity::class.java))
+            true
+        }
+        R.id.action_my_posts -> {
+            val intent = Intent(this, UserActivity::class.java)
+            intent.putExtra(PostViewHolder.USERNAME, getString(R.string.me))
+            startActivity(intent)
+            true
+        } else -> {
+            super.onOptionsItemSelected(item)
         }
     }
 }
