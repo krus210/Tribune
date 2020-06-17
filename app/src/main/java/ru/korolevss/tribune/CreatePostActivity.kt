@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -14,13 +15,14 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_create_post.*
 import kotlinx.coroutines.launch
+import ru.korolevss.tribune.postadapter.PostViewHolder
 import ru.korolevss.tribune.repository.Repository
 import java.io.IOException
 
 
 class CreatePostActivity : AppCompatActivity() {
 
-    companion object {
+    private companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
         const val GALLERY_REQUEST = 2
     }
@@ -76,7 +78,6 @@ class CreatePostActivity : AppCompatActivity() {
                         } finally {
                             switchDeterminateBar(false)
                         }
-
                     }
                 }
             }
@@ -130,7 +131,6 @@ class CreatePostActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun loadImage(imageBitmap: Bitmap?) {
         imageBitmap?.let {
-            switchDeterminateBar(true)
             lifecycleScope.launch {
                 try {
                     switchDeterminateBar(true)
@@ -164,6 +164,28 @@ class CreatePostActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            startActivity(Intent(this, SettingsActivity::class.java))
+            finish()
+            true
+        }
+        R.id.action_my_posts -> {
+            val intent = Intent(this, UserActivity::class.java)
+            intent.putExtra(PostViewHolder.USERNAME, getString(R.string.me))
+            startActivity(intent)
+            finish()
+            true
+        } else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        finish()
+        return true
     }
 }

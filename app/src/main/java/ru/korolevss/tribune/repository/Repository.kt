@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import ru.korolevss.tribune.api.API
 import ru.korolevss.tribune.dto.AttachmentModel
 import ru.korolevss.tribune.dto.AuthRequestParams
+import ru.korolevss.tribune.dto.PasswordChangeRequestDto
 import ru.korolevss.tribune.dto.PostRequestDto
 import ru.korolevss.tribune.model.Token
 import java.io.ByteArrayOutputStream
@@ -93,5 +94,13 @@ object Repository {
         )
         return api.createPost(postRequestDto)
     }
+
+    suspend fun getMe() = api.getMe()
+
+    suspend fun addImageToUser(attachmentModel: AttachmentModel) =
+        api.addImageToUser(attachmentModel)
+
+    suspend fun changePassword(passwordChangeRequestDto: PasswordChangeRequestDto) =
+        api.changePassword(passwordChangeRequestDto)
 
 }

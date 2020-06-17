@@ -60,7 +60,7 @@
         tools:text="@string/status" />
 
     <Switch
-        android:id="@+id/switchAddPhotoFromGallery"
+        android:id="@+id/switchAddPhotoFromGallerySettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_15dp"
@@ -72,14 +72,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewUser" />
 
     <ImageView
-        android:id="@+id/imageViewAddImage"
+        android:id="@+id/imageViewAddImageSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchAddPhotoFromGallery"
+        app:layout_constraintTop_toBottomOf="@+id/switchAddPhotoFromGallerySettings"
         app:srcCompat="@drawable/ic_add_a_photo_black_48dp" />
 
     <TextView
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewAddImage" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAddImageSettings" />
 
 
     <EditText

@@ -45,4 +45,12 @@
     <string name="dont_add_photo">Don\'t add photo</string>
     <string name="create_post_is_successful">Create post is successful</string>
     <string name="create_post_failed">Create post failed</string>
+    <string name="load_user_failed">Load user failed</string>
+    <string name="attach_image__to_user_failed">Attach Image to user failed</string>
+    <string name="empty_password">Empty password</string>
+    <string name="change_password_successful">Change password successful</string>
+    <string name="change_password_failed">Change password failed</string>
+    <string name="notify">Notify</string>
+    <string name="description_text">Description text</string>
+    <string name="push_token_on_server_failed">Push token on server failed</string>
 </resources>

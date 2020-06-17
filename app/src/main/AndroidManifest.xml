@@ -28,7 +28,7 @@
             android:name=".MainActivity"
             android:label="@string/registration" />
         <service
-            android:name=".FCMService"
+            android:name=".service.FCMService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

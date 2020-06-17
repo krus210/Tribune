@@ -5,9 +5,11 @@ import retrofit2.Response
 import retrofit2.http.*
 import ru.korolevss.tribune.dto.AttachmentModel
 import ru.korolevss.tribune.dto.AuthRequestParams
+import ru.korolevss.tribune.dto.PasswordChangeRequestDto
 import ru.korolevss.tribune.dto.PostRequestDto
 import ru.korolevss.tribune.model.PostModel
 import ru.korolevss.tribune.model.Token
+import ru.korolevss.tribune.model.UserModel
 
 interface API {
     @POST("api/v1/authentication")
@@ -44,4 +46,13 @@ interface API {
 
     @POST("api/v1/posts")
     suspend fun createPost(@Body postRequestDto: PostRequestDto): Response<Void>
+
+    @GET("api/v1/me")
+    suspend fun getMe(): Response<UserModel>
+
+    @POST("api/v1/me/image")
+    suspend fun addImageToUser(@Body attachmentModel: AttachmentModel): Response<Void>
+
+    @POST("api/v1/me/change-password")
+    suspend fun changePassword(@Body passwordChangeRequestDto: PasswordChangeRequestDto): Response<Token>
 }
