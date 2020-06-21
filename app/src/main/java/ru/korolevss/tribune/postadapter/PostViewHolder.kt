@@ -171,12 +171,6 @@ class PostViewHolder(
         }
     }
 
-    private fun loadImage(photoImg: ImageView, imageUrl: String) {
-        Glide.with(photoImg.context)
-            .load(imageUrl)
-            .into(photoImg)
-    }
-
     private fun fillCount(view: TextView, count: Int) {
         if (count == 0) {
             view.isVisible = false
@@ -185,4 +179,10 @@ class PostViewHolder(
             view.text = count.toString()
         }
     }
+}
+
+fun loadImage(photoImg: ImageView, imageUrl: String) {
+    Glide.with(photoImg.context)
+        .load(imageUrl)
+        .into(photoImg)
 }

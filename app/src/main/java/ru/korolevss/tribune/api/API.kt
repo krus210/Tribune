@@ -7,6 +7,7 @@ import ru.korolevss.tribune.dto.AttachmentModel
 import ru.korolevss.tribune.dto.AuthRequestParams
 import ru.korolevss.tribune.dto.PasswordChangeRequestDto
 import ru.korolevss.tribune.dto.PostRequestDto
+import ru.korolevss.tribune.model.LikeDislikeModel
 import ru.korolevss.tribune.model.PostModel
 import ru.korolevss.tribune.model.Token
 import ru.korolevss.tribune.model.UserModel
@@ -55,4 +56,7 @@ interface API {
 
     @POST("api/v1/me/change-password")
     suspend fun changePassword(@Body passwordChangeRequestDto: PasswordChangeRequestDto): Response<Token>
+
+    @GET("api/v1/posts/{id}/list-like-dislike-users")
+    suspend fun getLikeDislikeUsers(@Path("id") postId: Long): Response<List<LikeDislikeModel>>
 }

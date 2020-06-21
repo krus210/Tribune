@@ -103,4 +103,6 @@ object Repository {
     suspend fun changePassword(passwordChangeRequestDto: PasswordChangeRequestDto) =
         api.changePassword(passwordChangeRequestDto)
 
+    suspend fun getLikeDislikeUsers(postId: Long) = api.getLikeDislikeUsers(postId)
+
 }
